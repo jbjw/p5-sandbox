@@ -1,0 +1,22 @@
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: aliceblue;
+}
+
+canvas {
+	/* border: black solid thick; */
+}
+
+#container-controls {
+	display: flex;
+	flex-direction: column;
+}
