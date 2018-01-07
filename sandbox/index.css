@@ -13,7 +13,7 @@ body {
 }
 
 canvas {
-	/* border: black solid thick; */
+	border: black solid thick;
 }
 
 #container-controls {
