@@ -3,6 +3,11 @@
 // import * as utils from "../libraries/utils.js"
 // import "../libraries/p5.js"
 
+const utils = {}
+utils.Vec2 = function Vec2( x, y ) {
+	this.x = x, this.y = y
+}
+
 var x = 0
 var y = 0
 var vx = 0.01
