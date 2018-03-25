@@ -1,14 +1,12 @@
 //
 
+"use strict"
+
 const select = document.querySelector.bind( document )
 const selectAll = document.querySelectorAll.bind( document )
 
-select( "#button-rerun" ).addEventListener( "click", function () {
-	setup() // not supposed to do this but it works
-} )
-
-const numWalkers = 100*4
-const drawMode = "curves" // this or string/enum?
+const numWalkers = 10
+const drawMode = "dots" // this or string/enum?
 
 const walkMode = "granular" // "granular" or "whole"
 // leaning, follo wmouse?
@@ -21,7 +19,8 @@ const walkers = []
 // quantify the interesting stuff, close stepDistances at low values, all combos
 // hollow rects too
 
-const stepDistances = [ 100, 10, 1 ]
+const stepDistances = [ 8 ]
+// const stepDistances = [ 16, 8, 32 ]
 // const stepDistances = [ 32, 16, 64, 8, 4 ]
 // const stepDistances = [ 2, 3, 4 ]
 
@@ -39,10 +38,12 @@ function randomColor() {
 }
 
 function setup() {
-	const canvas = createCanvas( 640, 360 )
+
+	const canvas = createCanvas( windowWidth, windowHeight )
+	// const canvas = createCanvas( 640, 360 )
 	canvas.parent( "container-sketch" )
 
-	frameRate( 60 )
+	// frameRate( 60 )
 
 	for ( let i = 0; i < numWalkers; i++ ) {
 		walkers.push( new Walker( {
@@ -70,7 +71,7 @@ function Walker( args ) {
 		fill( this.color )
 		switch ( drawMode ) {
 			case "lines":
-				line ( this.prevX, this.prevY, this.x, this.y )
+				line( this.historyX[ 0 ], this.historyY[ 0 ], this.x, this.y )
 				break
 			case "curves":
 				curve(
@@ -88,6 +89,7 @@ function Walker( args ) {
 				break
 			case "rects":
 				rect( this.x, this.y, this.stepDistance, this.stepDistance )
+				break
 		}
 	}
 
@@ -138,5 +140,5 @@ function draw() {
 }
 
 function windowResized() {
-	// resizeCanvas( windowWidth, windowHeight )
+	resizeCanvas( windowWidth, windowHeight )
 }

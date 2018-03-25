@@ -3,7 +3,7 @@
 const select = document.querySelector.bind( document )
 const selectAll = document.querySelectorAll.bind( document )
 
-const speedMult = 10
+const speedMult = 3
 
 
 
@@ -92,14 +92,14 @@ function setup() {
 	var mainRotor = new Rotor( {
 		pos: createVector( width / 2, height / 2 ),
 		radius: 160,
-		speed: 0.012,
+		speed: 0.015,
 		color: randomColor(),
 	} )
 
 	var rotor1 = new Rotor( {
 		pos: createVector( width / 2, height / 2 ),
 		radius: 80,
-		speed: -0.017,
+		speed: -0.010,
 		color: randomColor(),
 	} )
 
@@ -113,7 +113,7 @@ function setup() {
 	var rotor3 = new Rotor( {
 		pos: createVector( width / 2, height / 2 ),
 		radius: 20,
-		speed: -0.07,
+		speed: -0.05,
 		color: randomColor(),
 	} )
 
