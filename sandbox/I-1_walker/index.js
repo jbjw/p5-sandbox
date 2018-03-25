@@ -3,7 +3,8 @@
 let w
 
 function setup() {
-	createCanvas( 640, 360 )
+	const canvas = createCanvas( 640, 360 )
+	canvas.parent( "canvas-container" )
 	w = new Walker()
 	background( 255 )
 }
